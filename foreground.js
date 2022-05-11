@@ -154,10 +154,6 @@ class Bot {
 
     await sleep(nextRefreshIn * 1000);
 
-    document.querySelector('.wa_footer .item').click();
-    await sleep(3 * 1000);
-    document.querySelector('.grab_wrap').click();
-    await sleep(3 * 1000);
     location.reload();
 
   }
