@@ -101,6 +101,10 @@ class Bot {
       
       await sleep(3 * 1000);
 
+      if(parent.ordersCompleted <= 0){
+        parent.sendDiscordReport();
+      }
+
     }
 
     console.log('No more grabs for today');
@@ -223,6 +227,57 @@ class Bot {
     };
 
     return returntext.trim();
+
+  }
+
+  sendDiscordReport(){
+
+    var parent = this;
+
+    if(parent.options.discord_webhook != ''){
+
+      console.log('Sent to discord');
+
+      fetch(
+        parent.options.discord_webhook,
+        {
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            username: 'webhook',
+            avatar_url:
+              'https://nas.charl.in/joom_avatar.png',
+            embeds: [
+              {
+                color: 15105570,
+                author: {
+                  name: 'JoomQQ Bot',
+                },
+                thumbnail: {
+                  url: 'https://nas.charl.in/joom_avatar.png',
+                },
+                fields: [
+                  {
+                    name: 'Commision Today',
+                    value: document.querySelectorAll('.page-taskcenter .user-info .flex-box .flex-item')[2].querySelector('.value').innerHTML
+                  },
+                  {
+                    name: 'Yesterday commission',
+                    value: document.querySelectorAll('.page-taskcenter .user-info .flex-box .flex-item')[4].querySelector('.value').innerHTML,
+                  },
+                  {
+                    name: 'Account Balance',
+                    value: document.querySelectorAll('.page-taskcenter .user-info .flex-box .flex-item')[0].querySelector('.value').innerHTML,
+                  },
+                ],
+              },
+            ],
+          }),
+        }
+      );
+    }
 
   }
 
