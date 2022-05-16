@@ -98,6 +98,8 @@ class Bot {
       await sleep(2 * 1000);
 
       parent.setOrdersCompleted(parseInt(document.querySelector('.task-today-cont p span').innerHTML));
+
+      console.log(parent.ordersCompleted);
       
       await sleep(3 * 1000);
 
