@@ -91,11 +91,11 @@ class Bot {
 
       document.querySelector('.order-task-item .task-action .shuadan_btn.enable').click();
       
-      await sleep(2 * 1000);
+      await sleep(5 * 1000);
 
       document.querySelector('.page-taskpaysuccess .success-action .shuadan_btn.enable').click();
       
-      await sleep(2 * 1000);
+      await sleep(5 * 1000);
 
       parent.setOrdersCompleted(parseInt(document.querySelector('.task-today-cont p span').innerHTML));
 
