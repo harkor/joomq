@@ -83,17 +83,20 @@ class Bot {
 
       console.log('do grab');
 
-      document.querySelectorAll('.task-btn-box.shuadan_btn')[1].click();
+      // document.querySelectorAll('.task-btn-box.shuadan_btn')[1].click();
+      document.querySelector('.task-btn-box.shuadan_btn.enable').click();
       
-      await sleep(15 * 1000);
+      await sleep(10 * 1000);
 
       console.log('validate button');
 
-      document.querySelector('.order-task-item .task-action .shuadan_btn.enable').click();
+      // document.querySelector('.order-task-item .task-action .shuadan_btn.enable').click();
+      document.querySelector('.shuadan_btn.enable').click();
       
       await sleep(5 * 1000);
 
-      document.querySelector('.page-taskpaysuccess .success-action .shuadan_btn.enable').click();
+      // document.querySelector('.page-taskpaysuccess .success-action .shuadan_btn.enable').click();
+      document.querySelector('.shuadan_btn.enable').click();
       
       await sleep(5 * 1000);
 
